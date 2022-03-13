@@ -1,0 +1,126 @@
+!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dark - Página Principal</title>
+    <meta content="Dark" property="og:title" />
+    <meta content="About me" property="og:description" />
+    <meta content="https://dark26.ga/" property="og:url" />
+    <meta content="https://static.wikia.nocookie.net/97b0d910-7557-4102-b78a-fcc1d59654d0" property="og:image" />
+    <meta content="#086892" data-react-helmet="true" name="theme-color" />
+     <!-- ===== CSS ===== -->
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- ===== JS ===== -->
+    <link href="/index.js" rel="stylesheet" type="text/js" media="all">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- ===== FONTS ===== -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300" rel="stylesheet">
+  
+
+    <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+
+ <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="#">Dark</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">Dark</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="https://dark26.neocities.org">Página principal</a></li>
+                    <li><a href="https://dark26.neocities.org/es/about">Sobre mí</a></li>
+                    <li><a href="https://dark26.neocities.org/es/cube">Cubo</a></li>
+                    <li><a href="https://dark26.neocities.org/es/contact">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<script>
+
+const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+        sidebarOpen = document.querySelector(".sidebarOpen"),
+          siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+ 
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+</script>
+
+  <div class="header-container">
+    <h1 class="header-title">About</h1>
+
+    <div class="social-media-icons">
+      <a class="icon" href="https://github.com/DarkGames26"
+      target="_blank">
+        <i class="fa fa-github"></i>
+      </a>
+      <a class="icon" href="https://discord.com/users/793661749970468874"
+      target="_blank">
+       <img src="https://dark26.neocities.org/discord.png" height="12px">
+      </a>
+    </div>
+
+    <p class="header-intro">¡Hola a todos!, Mi nombre es Dark, conocido en Internet como DarkGames. Soy un programador principiante, empezando con
+    <a href="https://www.python.org/" target="_blank">Python</a>.  Me gusta usar mi tiempo libre en Discord y editando en wikis.
+    </p>
+  </div>
+
+<div class="footer">
+    <p>CC-BY-SA © 2022 Dark</p>
+ </div>
+
+</body>
+</html>
